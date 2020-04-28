@@ -27,7 +27,7 @@ import java.awt.event.ActionEvent;
 public class viewCustomerDetails extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField customerID;
+	public static JTextField customerID;
 	private JTable customerDetailTable;
 	private JScrollPane scrollPane;
 
@@ -51,7 +51,7 @@ public class viewCustomerDetails extends JFrame {
 	 * Create the frame.
 	 */
 	public viewCustomerDetails() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 596, 476);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -139,6 +139,51 @@ public class viewCustomerDetails extends JFrame {
 		contentPane.add(viewAll);
 		
 		JButton btnSearch = new JButton("Search");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+				try {/*this is the search specific function*/
+					
+					ArrayList<Customer> detail = functions.customerSearchDetail();
+					
+					DefaultTableModel model = (DefaultTableModel)customerDetailTable.getModel();
+					
+					model.setRowCount(0);/*resets the table so it only show the customer you are looking for*/
+					
+					Object[] row = new Object[7];
+					
+					for(int i=0; i<detail.size();i++) {
+						
+						row[0] = detail.get(i).getCustomerID();
+						
+						row[1] = detail.get(i).getEmployeeID();
+						
+						row[2] = detail.get(i).getOrderNumber();
+						
+						row[3] = detail.get(i).getCompany();
+						
+						row[4] = detail.get(i).getQuantity();
+						
+						row[5] = detail.get(i).getsaleValue();
+						
+						row[6] = detail.get(i).getPreference();
+						
+						model.addRow(row);
+						
+					}
+					
+				
+				}catch (Exception e1) {
+				
+				
+					JOptionPane.showMessageDialog(null, "Please Make sure you enter the correct value in each field");
+				}
+				
+				
+				
+			}
+		});
 		btnSearch.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		btnSearch.setBounds(342, 77, 184, 41);
 		contentPane.add(btnSearch);

@@ -139,21 +139,21 @@ public class Login {
 					menu.setVisible(true);
 					
 				} 
-				if (count==1 && privilege.equals(hr)) {
+				else if (count==1 && privilege.equals(hr)) {
 					/*opens the hr menu inetrface after succesful login*/
 					
 					frame.dispose();
 					hrMenu menu = new hrMenu();
 					menu.setVisible(true);
 					
-				} if (count==1 && privilege.equals(sales)) {
+				} else if (count==1 && privilege.equals(sales)) {
 					/*opens the sales menu inetrface after succesful login*/
 					
 					frame.dispose();
 					salesMenu menu = new salesMenu();
 					menu.setVisible(true);
 					
-				} if (count==1 && privilege.equals(engineer)) {
+				} else if (count==1 && privilege.equals(engineer)) {
 					/*opens the admin menu inetrface after succesful login*/
 					
 					frame.dispose();
@@ -162,7 +162,7 @@ public class Login {
 					
 				} else {
 					
-					JOptionPane.showMessageDialog(null, "Username or Password is incorrect");
+					JOptionPane.showMessageDialog(null, count);
 					
 				}
 				

@@ -75,7 +75,47 @@ public class functions {
 		
 	}
 	
-
+	public static ArrayList<Customer> customerSearchDetail(){/*used to make the table for customer deatil when clicking the view customer detail button*/
+		ArrayList<Customer> customerDetail = new ArrayList<>();
+		
+		try {
+		
+		
+		
+		Connection connect = connect();
+		
+		String query = "select * from customer_details where customer_id = ?";/*will be using the text field to fill in the values of ?*/
+		
+		PreparedStatement myStmt = connect.prepareStatement(query);/*This is the line we are going to use if the user is actually an employee that is registered in the database*/
+		
+		myStmt.setString(1, viewCustomerDetails.customerID.getText());
+	
+		ResultSet result = myStmt.executeQuery();
+		
+		Customer customer;
+		
+		while(result.next()) {
+			
+			
+			customer = new Customer (result.getInt("order_number"), result.getInt("quantity"), result.getInt("sale_value"), result.getString("customer_id"), result.getString("preference"), result.getString("company"), result.getString("employee_id"));
+			/*the entry corresponds to the column index of each variable that is made from customer constructor*/
+			
+			customerDetail.add(customer); /*adds each row of the customer table in sql to the array list*/			
+			
+		}
+		
+		
+		
+		} catch(SQLException e1) {
+			
+			
+			JOptionPane.showMessageDialog(null, "Customer not found");
+			
+		}
+		
+		return customerDetail;
+		
+	}
 	
 
 	}
