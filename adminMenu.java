@@ -52,12 +52,20 @@ public class adminMenu extends JFrame {
 			}
 		});
 		createEmployee.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		createEmployee.setBounds(10, 10, 199, 48);
+		createEmployee.setBounds(10, 10, 237, 48);
 		contentPane.add(createEmployee);
 		
 		JButton deleteEmployee = new JButton("delete employee");
+		deleteEmployee.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				deleteEmployee menu = new deleteEmployee();
+				menu.setVisible(true);
+				
+			}
+		});
 		deleteEmployee.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		deleteEmployee.setBounds(219, 10, 199, 48);
+		deleteEmployee.setBounds(10, 68, 237, 48);
 		contentPane.add(deleteEmployee);
 	}
 }

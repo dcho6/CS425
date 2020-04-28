@@ -18,6 +18,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
+import javax.swing.JSpinner;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class createEmployee extends JFrame {
 	
@@ -29,9 +32,7 @@ public class createEmployee extends JFrame {
 	private JTextField lastName;
 	private JTextField username;
 	private JTextField password;
-	private JTextField payType;
 	private JTextField pay;
-	private JTextField privilege;
 
 	/**
 	 * Launch the application.
@@ -53,7 +54,7 @@ public class createEmployee extends JFrame {
 	 * Create the frame.
 	 */
 	public createEmployee() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 702, 658);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -138,15 +139,22 @@ public class createEmployee extends JFrame {
 		password.setBounds(166, 291, 407, 45);
 		contentPane.add(password);
 		
-		payType = new JTextField();
-		payType.setColumns(10);
-		payType.setBounds(166, 346, 407, 45);
-		contentPane.add(payType);
-		
 		pay = new JTextField();
 		pay.setColumns(10);
 		pay.setBounds(166, 401, 407, 45);
 		contentPane.add(pay);
+		
+		JComboBox privilege = new JComboBox();
+		privilege.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		privilege.setModel(new DefaultComboBoxModel(new String[] {"admin", "HR", "engineer", "sales"}));
+		privilege.setBounds(166, 457, 407, 45);
+		contentPane.add(privilege);
+		
+		JComboBox payType = new JComboBox();
+		payType.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		payType.setModel(new DefaultComboBoxModel(new String[] {"Hourly", "Salary"}));
+		payType.setBounds(166, 346, 407, 45);
+		contentPane.add(payType);
 		
 		JButton btnNewButton = new JButton("Create");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -160,25 +168,25 @@ public class createEmployee extends JFrame {
 				
 					PreparedStatement myStmt = connect.prepareStatement(query);/*This is the line we are going to use if the user is actually an employee that is registered in the database*/
 				
-					myStmt.setLong(1, Integer.parseInt(ssn.getText()));/*parameter for checking the username*/
+					myStmt.setLong(1, Integer.parseInt(ssn.getText()));/*getting the entered value for ssn*/
 					
-					myStmt.setString(2, employeeID.getText());/*parameter for checking the username*/
+					myStmt.setString(2, employeeID.getText());/*getting value enetered for employeeID*/
 					
-					myStmt.setString(3, privilege.getText());/*parameter for checking the username*/
+					myStmt.setString(3, (String)privilege.getSelectedItem());/*getting value enetered for privilege*/
 					
-					myStmt.setString(4, firstName.getText());/*parameter for checking the username*/
+					myStmt.setString(4, firstName.getText());/*getting value enetered for firstName*/
 					
-					myStmt.setString(5, lastName.getText());/*parameter for checking the username*/
+					myStmt.setString(5, lastName.getText());/*getting value enetered for lastName*/
 					
-					myStmt.setString(6, password.getText());/*parameter for checking the username*/
+					myStmt.setString(6, password.getText());/*getting value enetered for password*/
 					
-					myStmt.setString(7, payType.getText());/*parameter for checking the username*/
+					myStmt.setString(7, (String)payType.getSelectedItem());/*getting value enetered for payType*/
 					
-					myStmt.setLong(8, Integer.parseInt(pay.getText()));/*parameter for checking the username*/
+					myStmt.setLong(8, Integer.parseInt(pay.getText()));/*getting value enetered for pay*/
 					
-					myStmt.setLong(9, 0);/*parameter for checking the username*/
+					myStmt.setLong(9, 0);/*setting total sales to zero*/
 				
-					myStmt.setString(10, username.getText());/*parameter for checking the password*/
+					myStmt.setString(10, username.getText());/*getting value enetered for username*/
 				
 					myStmt.executeUpdate();
 					
@@ -202,9 +210,6 @@ public class createEmployee extends JFrame {
 		lblPriveledge.setBounds(20, 456, 136, 45);
 		contentPane.add(lblPriveledge);
 		
-		privilege = new JTextField();
-		privilege.setColumns(10);
-		privilege.setBounds(166, 456, 407, 45);
-		contentPane.add(privilege);
+		
 	}
 }
