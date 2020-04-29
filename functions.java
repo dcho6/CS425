@@ -75,7 +75,7 @@ public class functions {
 		
 	}
 	
-	public static ArrayList<Customer> customerSearchDetail(){/*used to make the table for customer deatil when clicking the view customer detail button*/
+	public static ArrayList<Customer> customerSearchDetail(){/*used to make the table for customer detail when clicking the view customer detail button*/
 		ArrayList<Customer> customerDetail = new ArrayList<>();
 		
 		try {
@@ -117,5 +117,131 @@ public class functions {
 		
 	}
 	
-
+	
+	public static ArrayList<Employee> employeeView(){/*used to make the table for employee deatil when clicking the view customer detail button*/
+		ArrayList<Employee> employeeArr = new ArrayList<>();
+		
+		try {
+		
+		
+		
+		Connection connect = connect();
+		
+		String query = "select * from Employee";/*will be using the text field to fill in the values of ?*/
+		
+		PreparedStatement myStmt = connect.prepareStatement(query);/*This is the line we are going to use if the user is actually an employee that is registered in the database*/
+	
+		ResultSet result = myStmt.executeQuery();
+		
+		Employee employee;
+		
+		while(result.next()) {
+			
+			
+			employee = new Employee (result.getInt("ssn"), result.getString("employee_id"), result.getString("privilege_type"), result.getString("first_name"), result.getString("last_name"), result.getString("username"), result.getString("password"), result.getString("pay_type"), result.getInt("pay"), result.getInt("total_sales"));
+			/*the entry corresponds to the column index of each variable that is made from Employee constructor*/
+			
+			employeeArr.add(employee); /*adds each row of the customer table in sql to the array list*/			
+			
+		}
+		
+		
+		
+		} catch(Exception e1) {
+			
+			
+			System.out.print(e1);
+			
+		}
+		
+		return employeeArr;
+		
 	}
+	
+	public static ArrayList<Employee> employeeSearchView(){/*used to make the table for employee deatil when clicking the view customer detail button*/
+		ArrayList<Employee> employeeArr = new ArrayList<>();
+		
+		try {
+		
+		
+		
+		Connection connect = connect();
+		
+		String query = "select * from Employee WHERE ssn = ? AND employee_id = ?";/*will be using the text field to fill in the values of ?*/
+		
+		PreparedStatement myStmt = connect.prepareStatement(query);/*This is the line we are going to use if the user is actually an employee that is registered in the database*/
+		
+		myStmt.setLong(1, Integer.parseInt(viewEmployee.ssn.getText()));
+		
+		myStmt.setString(2, viewEmployee.employeeID.getText());
+		
+		ResultSet result = myStmt.executeQuery();
+		
+		Employee employee;
+		
+		while(result.next()) {
+			
+			
+			employee = new Employee (result.getInt("ssn"), result.getString("employee_id"), result.getString("privilege_type"), result.getString("first_name"), result.getString("last_name"), result.getString("username"), result.getString("password"), result.getString("pay_type"), result.getInt("pay"), result.getInt("total_sales"));
+			/*the entry corresponds to the column index of each variable that is made from Employee constructor*/
+			
+			employeeArr.add(employee); /*adds each row of the customer table in sql to the array list*/			
+			
+		}
+		
+		
+		
+		} catch(SQLException e1) {
+			
+			
+			JOptionPane.showMessageDialog(null, "Employee not found");			
+		}
+		
+		return employeeArr;
+		
+	}
+
+	
+	public static ArrayList<EmployeeSales> employeeSalesSearch(){/*used to make the table for employee deatil when clicking the view customer detail button*/
+		ArrayList<EmployeeSales> employeeArr = new ArrayList<>();
+		
+		try {
+		
+		
+		
+		Connection connect = connect();
+		
+		String query = "select ssn, employee_id, total_sales from Employee WHERE ssn = ? AND employee_id = ?";/*will be using the text field to fill in the values of ?*/
+		
+		PreparedStatement myStmt = connect.prepareStatement(query);/*This is the line we are going to use if the user is actually an employee that is registered in the database*/
+		
+		myStmt.setLong(1, Integer.parseInt(viewEmployeeSales.ssn.getText()));
+		
+		myStmt.setString(2, viewEmployeeSales.employeeID.getText());
+		
+		ResultSet result = myStmt.executeQuery();
+		
+		EmployeeSales employee;
+		
+		while(result.next()) {
+			
+			
+			employee = new EmployeeSales (result.getInt("ssn"), result.getString("employee_id"), result.getInt("total_sales"));
+			/*the entry corresponds to the column index of each variable that is made from Employee constructor*/
+			
+			employeeArr.add(employee); /*adds each row of the customer table in sql to the array list*/			
+			
+		}
+		
+		
+		
+		} catch(SQLException e1) {
+			
+			
+			JOptionPane.showMessageDialog(null, "Employee not found");			
+		}
+		
+		return employeeArr;
+		
+	}
+}

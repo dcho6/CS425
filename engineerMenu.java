@@ -46,7 +46,7 @@ public class engineerMenu extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-//				viewEmployee menu = new viewEmployee();
+//				viewModel menu = new viewModel();
 //				menu.setVisible(true);
 				
 			}
@@ -59,8 +59,8 @@ public class engineerMenu extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-//				updateEmployee menu = new updateEmployee();
-//				menu.setVisible(true);
+		//		updateModel menu = new updateModel();
+			//	menu.setVisible(true);
 				
 			}
 		});
@@ -72,7 +72,7 @@ public class engineerMenu extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-//				viewEmployeeSales menu = new viewEmployeeSales();
+//				viewInventory menu = new viewInventory();
 //				menu.setVisible(true);
 				
 			}
@@ -85,8 +85,8 @@ public class engineerMenu extends JFrame {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-//				viewEmployee menu = new viewEmployee();
-//				menu.setVisible(true);
+				//updateInventory menu = new updateInventory();
+				//menu.setVisible(true);
 				
 			}
 		});
@@ -98,7 +98,7 @@ public class engineerMenu extends JFrame {
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-//				updateEmployee menu = new updateEmployee();
+//				viewEmployeeLimited menu = new viewEmployeeLimited();
 //				menu.setVisible(true);
 				
 			}

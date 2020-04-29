@@ -47,8 +47,8 @@ public class hrMenu extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-//				viewEmployee menu = new viewEmployee();
-//				menu.setVisible(true);
+				viewEmployee menu = new viewEmployee();
+				menu.setVisible(true);
 				
 			}
 		});
@@ -73,8 +73,8 @@ public class hrMenu extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-//				viewEmployeeSales menu = new viewEmployeeSales();
-//				menu.setVisible(true);
+				viewEmployeeSales menu = new viewEmployeeSales();
+				menu.setVisible(true);
 				
 			}
 		});

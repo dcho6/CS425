@@ -55,8 +55,8 @@ public class salesMenu extends JFrame {
 		btnNewButton.setBounds(10, 10, 271, 40);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Update Customer");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnNewButton_3 = new JButton("Update Customer");
+		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				updateCustomer menu = new updateCustomer();
@@ -64,12 +64,12 @@ public class salesMenu extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		btnNewButton_1.setBounds(10, 58, 271, 40);
-		contentPane.add(btnNewButton_1);
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		btnNewButton_3.setBounds(10, 58, 271, 40);
+		contentPane.add(btnNewButton_3);
 		
-		JButton btnNewButton_2 = new JButton("Create Purchase Order");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton btnNewButton_1 = new JButton("Create Purchase Order");
+		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				createPurchaseOrder menu = new createPurchaseOrder();
@@ -77,12 +77,12 @@ public class salesMenu extends JFrame {
 				
 			}
 		});
-		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		btnNewButton_2.setBounds(10, 108, 271, 40);
-		contentPane.add(btnNewButton_2);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		btnNewButton_1.setBounds(10, 108, 271, 40);
+		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_3 = new JButton("View Customer Details");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton btnNewButton_2 = new JButton("View Customer Details");
+		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				viewCustomerDetails menu = new viewCustomerDetails();
@@ -90,9 +90,9 @@ public class salesMenu extends JFrame {
 				
 			}
 		});
-		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		btnNewButton_3.setBounds(10, 158, 271, 40);
-		contentPane.add(btnNewButton_3);
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		btnNewButton_2.setBounds(10, 158, 271, 40);
+		contentPane.add(btnNewButton_2);
 	}
 
 }
