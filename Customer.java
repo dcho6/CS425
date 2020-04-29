@@ -1,4 +1,4 @@
-package finalProjectCS425;
+package CS425;
 
 public class Customer {/*this is used to create the customer data for our array list*/
 	

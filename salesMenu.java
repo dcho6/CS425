@@ -1,4 +1,4 @@
-package finalProjectCS425;
+package CS425;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -52,14 +52,14 @@ public class salesMenu extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 23));
-		btnNewButton.setBounds(10, 10, 217, 40);
+		btnNewButton.setBounds(10, 10, 271, 40);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Create Purchase Order");
+		JButton btnNewButton_1 = new JButton("Update Customer");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				createPurchaseOrder menu = new createPurchaseOrder();
+				updateCustomer menu = new updateCustomer();
 				menu.setVisible(true);
 				
 			}
@@ -68,11 +68,11 @@ public class salesMenu extends JFrame {
 		btnNewButton_1.setBounds(10, 58, 271, 40);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("View Customer Details");
+		JButton btnNewButton_2 = new JButton("Create Purchase Order");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				viewCustomerDetails menu = new viewCustomerDetails();
+				createPurchaseOrder menu = new createPurchaseOrder();
 				menu.setVisible(true);
 				
 			}
@@ -80,6 +80,19 @@ public class salesMenu extends JFrame {
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		btnNewButton_2.setBounds(10, 108, 271, 40);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("View Customer Details");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				viewCustomerDetails menu = new viewCustomerDetails();
+				menu.setVisible(true);
+				
+			}
+		});
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 23));
+		btnNewButton_3.setBounds(10, 158, 271, 40);
+		contentPane.add(btnNewButton_3);
 	}
 
 }

@@ -1,4 +1,4 @@
-package finalProjectCS425;
+package CS425;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -77,7 +77,7 @@ public class createEmployee extends JFrame {
 		contentPane.add(employeeID);
 		employeeID.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Employee ID");
+		JLabel lblNewLabel_1 = new JLabel("Employee ID:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_1.setBounds(-10, 65, 166, 45);

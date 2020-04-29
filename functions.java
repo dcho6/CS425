@@ -1,4 +1,4 @@
-package finalProjectCS425;
+package CS425;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,11 +14,11 @@ public class functions {
 	
 	public static Connection connect() {
 		
-		String database = "jdbc:postgresql://localhost/finalproject425";/*this is the location of the database when you saved the tables and stuff on postgress*/
+		String database = "jdbc:postgresql://localhost/company";/*this is the location of the database when you saved the tables and stuff on postgress*/
 		
 		String user = "postgres";
 		
-		String password = "howlingwolf123";/*whatever password you did for postgres set up*/
+		String password = "pass1123Word!!";/*whatever password you did for postgres set up*/
 		
 		try {
 			

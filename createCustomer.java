@@ -1,4 +1,4 @@
-package finalProjectCS425;
+package CS425;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
