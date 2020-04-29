@@ -113,6 +113,8 @@ public class viewEmployee extends JFrame
 					
 					DefaultTableModel model = (DefaultTableModel)employeeTable.getModel();
 					
+					model.setRowCount(0);/*resets the table*/
+					
 					Object[] row = new Object[9];
 					
 					for(int i=0; i<detail.size();i++) {

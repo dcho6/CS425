@@ -100,6 +100,8 @@ public class viewCustomerDetails extends JFrame {
 					
 					DefaultTableModel model = (DefaultTableModel)customerDetailTable.getModel();
 					
+					model.setRowCount(0);/*resets the table*/
+					
 					Object[] row = new Object[7];
 					
 					for(int i=0; i<detail.size();i++) {

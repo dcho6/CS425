@@ -113,6 +113,8 @@ public class viewEmployeeSales extends JFrame
 					
 					DefaultTableModel model = (DefaultTableModel)employeeTable.getModel();
 					
+					model.setRowCount(0);/*resets the table*/
+					
 					Object[] row = new Object[3];
 					
 					for(int i=0; i<detail.size();i++) {
@@ -154,7 +156,7 @@ public class viewEmployeeSales extends JFrame
 				
 					DefaultTableModel model = (DefaultTableModel)employeeTable.getModel();
 					
-					model.setRowCount(0);/*resets the table so it only show the customer you are looking for*/
+					model.setRowCount(0);/*resets the table*/
 					
 					Object[] row = new Object[3];
 					

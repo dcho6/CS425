@@ -75,6 +75,9 @@ public class functions {
 		
 	}
 	
+	
+	//Customer functions
+	
 	public static ArrayList<Customer> customerSearchDetail(){/*used to make the table for customer detail when clicking the view customer detail button*/
 		ArrayList<Customer> customerDetail = new ArrayList<>();
 		
@@ -117,6 +120,8 @@ public class functions {
 		
 	}
 	
+	
+	//Employee Functions
 	
 	public static ArrayList<Employee> employeeView(){/*used to make the table for employee deatil when clicking the view customer detail button*/
 		ArrayList<Employee> employeeArr = new ArrayList<>();
@@ -226,7 +231,7 @@ public class functions {
 		while(result.next()) {
 			
 			
-			employee = new EmployeeSales (result.getInt("ssn"), result.getString("employee_id"), result.getInt("total_sales"));
+			employee = new EmployeeSales (result.getInt("ssn"), result.getString("employee_id"),  result.getInt("total_sales"));
 			/*the entry corresponds to the column index of each variable that is made from Employee constructor*/
 			
 			employeeArr.add(employee); /*adds each row of the customer table in sql to the array list*/			
@@ -244,4 +249,62 @@ public class functions {
 		return employeeArr;
 		
 	}
+	
+	public static ArrayList<EmployeeLimited> employeeLimitedSearch(){/*used to make the table for employee deatil when clicking the view customer detail button*/
+		ArrayList<EmployeeLimited> employeeArr = new ArrayList<>();
+		
+		try {
+		
+		
+		
+		Connection connect = connect();
+		
+		String query = "SELECT employee_id, privilege_type, first_name, last_name, username FROM Employee WHERE employee_id = ?";/*will be using the text field to fill in the values of ?*/
+		
+		PreparedStatement myStmt = connect.prepareStatement(query);/*This is the line we are going to use if the user is actually an employee that is registered in the database*/
+				
+		myStmt.setString(1, viewEmployeeLimited.employeeID.getText());
+		
+		ResultSet result = myStmt.executeQuery();
+		
+		EmployeeLimited employee;
+		
+		while(result.next()) {
+			
+			
+			employee = new EmployeeLimited (result.getString("employee_id"), result.getString("privilege_type"), result.getString("first_name"), result.getString("last_name"), result.getString("username"));
+			/*the entry corresponds to the column index of each variable that is made from Employee constructor*/
+			
+			employeeArr.add(employee); /*adds each row of the customer table in sql to the array list*/			
+			
+		}
+		
+		
+		
+		} catch(SQLException e1) {
+			
+			
+			JOptionPane.showMessageDialog(null, "Employee not found");			
+		}
+		
+		return employeeArr;
+		
+	}
+	
+	//Model Functions
+	
+	
+	
+	
+	
+	
+	
+	//Inventory Functions
+	
+	
+	
+	
+	
+	
+	
 }
