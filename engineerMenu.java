@@ -46,8 +46,8 @@ public class engineerMenu extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-//				viewModel menu = new viewModel();
-//				menu.setVisible(true);
+				viewModel menu = new viewModel();
+				menu.setVisible(true);
 				
 			}
 		});
@@ -72,8 +72,8 @@ public class engineerMenu extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-//				viewInventory menu = new viewInventory();
-//				menu.setVisible(true);
+				viewInventory menu = new viewInventory();
+				menu.setVisible(true);
 				
 			}
 		});

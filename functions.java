@@ -293,15 +293,171 @@ public class functions {
 	
 	//Model Functions
 	
+	public static ArrayList<Model> modelView(){/*used to make the table for employee deatil when clicking the view customer detail button*/
+		ArrayList<Model> modelArr = new ArrayList<>();
+		
+		try {
+		
+		
+		
+		Connection connect = connect();
+		
+		String query = "select * from Model";/*will be using the text field to fill in the values of ?*/
+		
+		PreparedStatement myStmt = connect.prepareStatement(query);/*This is the line we are going to use if the user is actually an employee that is registered in the database*/
 	
+		ResultSet result = myStmt.executeQuery();
+		
+		Model model;
+		
+		while(result.next()) {
+			
+			
+			model = new Model(result.getInt("model_number"), result.getInt("sale_price"), result.getString("manufacturer"));
+			/*the entry corresponds to the column index of each variable that is made from Employee constructor*/
+			
+			modelArr.add(model); /*adds each row of the customer table in sql to the array list*/			
+			
+		}
+		
+		
+		
+		} catch(Exception e1) {
+			
+			
+			System.out.print(e1);
+			
+		}
+		
+		return modelArr;
+		
+	}
 	
-	
-	
+	public static ArrayList<Model> modelSearchView(){/*used to make the table for employee deatil when clicking the view customer detail button*/
+		ArrayList<Model> modelArr = new ArrayList<>();
+		
+		try {
+		
+		
+		
+		Connection connect = connect();
+		
+		String query = "select * from Model WHERE model_number = ?";/*will be using the text field to fill in the values of ?*/
+		
+		PreparedStatement myStmt = connect.prepareStatement(query);/*This is the line we are going to use if the user is actually an employee that is registered in the database*/
+		
+		myStmt.setLong(1, Integer.parseInt(viewModel.modelNumber.getText()));
+		
+		ResultSet result = myStmt.executeQuery();
+		
+		Model model;
+		
+		while(result.next()) {
+			
+			
+			model = new Model(result.getInt("model_number"), result.getInt("sale_price"), result.getString("manufacturer"));
+			/*the entry corresponds to the column index of each variable that is made from Employee constructor*/
+			
+			modelArr.add(model); /*adds each row of the customer table in sql to the array list*/			
+			
+		}
+		
+		
+		
+		} catch(SQLException e1) {
+			
+			
+			JOptionPane.showMessageDialog(null, "Model not found");			
+		}
+		
+		return modelArr;
+		
+	}
 	
 	
 	//Inventory Functions
 	
+	public static ArrayList<Inventory> inventoryView(){/*used to make the table for employee deatil when clicking the view customer detail button*/
+		ArrayList<Inventory> inventoryArr = new ArrayList<>();
+		
+		try {
+		
+		
+		
+		Connection connect = connect();
+		
+		String query = "select * from Inventory";/*will be using the text field to fill in the values of ?*/
+		
+		PreparedStatement myStmt = connect.prepareStatement(query);/*This is the line we are going to use if the user is actually an employee that is registered in the database*/
 	
+		ResultSet result = myStmt.executeQuery();
+		
+		Inventory inventory;
+		
+		while(result.next()) {
+			
+			
+			inventory = new Inventory(result.getInt("model_number"), result.getString("shelf_location"), result.getInt("stock_quantity"), result.getString("lead_time"), result.getString("category_type"));
+			/*the entry corresponds to the column index of each variable that is made from Employee constructor*/
+			
+			inventoryArr.add(inventory); /*adds each row of the customer table in sql to the array list*/			
+			
+		}
+		
+		
+		
+		} catch(Exception e1) {
+			
+			
+			System.out.print(e1);
+			
+		}
+		
+		return inventoryArr;
+		
+	}
+	
+	public static ArrayList<Inventory> inventorySearchView(){/*used to make the table for employee deatil when clicking the view customer detail button*/
+		ArrayList<Inventory> inventoryArr = new ArrayList<>();
+		
+		try {
+		
+		
+		
+		Connection connect = connect();
+		
+		String query = "select * from Inventory WHERE model_number = ? AND shelf_location = ?";/*will be using the text field to fill in the values of ?*/
+		
+		PreparedStatement myStmt = connect.prepareStatement(query);/*This is the line we are going to use if the user is actually an employee that is registered in the database*/
+		
+		myStmt.setLong(1, Integer.parseInt(viewInventory.modelNumber.getText()));
+		myStmt.setString(2,  viewInventory.shelfLoc.getText());
+		
+		ResultSet result = myStmt.executeQuery();
+		
+		Inventory inventory;
+		
+		while(result.next()) {
+			
+			
+			inventory = new Inventory(result.getInt("model_number"), result.getString("shelf_location"), result.getInt("stock_quantity"), result.getString("lead_time"), result.getString("category_type"));
+			/*the entry corresponds to the column index of each variable that is made from Employee constructor*/
+			
+			inventoryArr.add(inventory); /*adds each row of the customer table in sql to the array list*/			
+			
+		}
+		
+		
+		
+		} catch(SQLException e1) {
+			
+			
+			JOptionPane.showMessageDialog(null, "Inventory not found");			
+		}
+		
+		return inventoryArr;
+		
+	}
 	
 	
 	
